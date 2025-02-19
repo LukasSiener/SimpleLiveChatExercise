@@ -28,3 +28,23 @@ export const handleClientMessage = (msg:IMessage) => {
 
     ws!.send(JSON.stringify(msg));
 }
+
+export const broadcastAvailableClients = () => {
+    const onlineClients = Array.from(clients.keys());
+
+    const message: IMessage = {
+        type: TYPE_ENUM.CLIENTS,
+        content: JSON.stringify(onlineClients),
+    }
+
+    clients.forEach((ws) => {
+        if (ws.readyState === WebSocket.OPEN) {
+            ws.send(JSON.stringify(message));
+        }
+    });
+}
+
+setInterval(broadcastAvailableClients, 5000);
+
+
+
