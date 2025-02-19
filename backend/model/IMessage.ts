@@ -1,11 +1,11 @@
-import {TYPE_ENUM} from "./TYPE_ENUM.ts";
+import {TYPE_ENUM} from "./TYPE_ENUM";
 
 export interface IMessage{
     type: TYPE_ENUM;
 
     content: string;
 
-    from: string;
+    from?: string;
 
-    to: string;
+    to?: string;
 }
