@@ -8,4 +8,8 @@ export enum TYPE_ENUM {
     START = "start",
 
     CLIENTS = "clients",
+
+    AUTH = "auth",
+
+    TEST = "test",
 }
